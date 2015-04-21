@@ -48,18 +48,22 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 runtime macros/matchit.vim
+
 syntax on
 set nu
-
 set cursorline
 set cursorcolumn
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
 
 " config section for Syntasic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
@@ -68,6 +72,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " config section for YCM
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_always_populate_location_list = 1
+" let g:ycm_always_populate_location_list = 1
 let mapleader = ","
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
