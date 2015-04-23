@@ -30,8 +30,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 " ...
 
 filetype plugin indent on     " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+" To ignore plugin indent changes, instead use: "filetype plugin on
 "
 " Brief help
 " :PluginList          - list configured plugins
@@ -45,11 +44,12 @@ filetype plugin indent on     " required
 " Comment out stuff
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
-Plugin 'Valloric/YouCompleteMe'
+ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 runtime macros/matchit.vim
 
 syntax on
+set hls
 set nu
 set cursorline
 set cursorcolumn
@@ -71,7 +71,8 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " config section for YCM
-let g:ycm_confirm_extra_conf = 0
+let g:ycm_confirm_extra_conf = 0 
+let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
 " let g:ycm_always_populate_location_list = 1
 let mapleader = ","
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
