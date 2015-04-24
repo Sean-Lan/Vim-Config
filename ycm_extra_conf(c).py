@@ -81,6 +81,8 @@ flags = [
 , '/usr/include'
 , '-I'
 , '/usr/local/include'
+, '-I'
+, '/usr/include/i386-linux-gnu'
 ]
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
