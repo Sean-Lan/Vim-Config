@@ -48,6 +48,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 runtime macros/matchit.vim
 
+" global config section
+let mapleader = ","
 syntax on
 set hls
 set nu
@@ -58,8 +60,11 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 set path=.,/usr/include/i386-linux-gnu,,
+set incsearch
 " keymap for close highlight search
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+" keymap for count the number of matches
+nnoremap <leader>mc :<C-u>%s/<C-r><C-w>//gn<CR><C-o>
 
 " config section for Syntasic
 set statusline+=%#warningmsg#
@@ -71,11 +76,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 
 " config section for YCM
 let g:ycm_confirm_extra_conf = 0 
 let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
 " let g:ycm_always_populate_location_list = 1
-let mapleader = ","
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
