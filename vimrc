@@ -44,7 +44,7 @@ filetype plugin indent on     " required
 " Comment out stuff
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
- Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 runtime macros/matchit.vim
 
@@ -57,6 +57,9 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
+set path=.,/usr/include/i386-linux-gnu,,
+" keymap for close highlight search
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " config section for Syntasic
 set statusline+=%#warningmsg#
