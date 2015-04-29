@@ -46,6 +46,11 @@ Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+" some text objects
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-entire'    " ae & ie
+Plugin 'kana/vim-textobj-function'  " if, af ,aF & iF(=af)
+Plugin 'kana/vim-textobj-lastpat'   " i/, a/(=i/), i? & a?=(i?)
 runtime macros/matchit.vim
 
 " global config section
@@ -61,6 +66,11 @@ set softtabstop=4
 set expandtab
 set path=.,/usr/include/i386-linux-gnu,,
 set incsearch
+" When the following two options are set, search will be case-insensitive iff
+" you input is all lowercase. *NOTE*: the two options will also affect the
+" :substitute cmd, so a flag I may be needed to be case-sensitive.
+set ignorecase
+set smartcase
 " keymap for close highlight search
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " keymap for count the number of matches
