@@ -75,6 +75,19 @@ set smartcase
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " keymap for count the number of matches
 nnoremap <leader>mc :<C-u>%s/<C-r><C-w>//gn<CR><C-o>
+" let <C-p> and <C-n> have the cmd filter ability as <Up> and <Down>.
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+" in visual mode, map * and # to select the selected text.
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = temp
+endfunction
 
 " config section for Syntasic
 set statusline+=%#warningmsg#
