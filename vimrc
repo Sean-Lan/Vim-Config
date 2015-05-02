@@ -88,6 +88,9 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
     let @s = temp
 endfunction
+" let & in normal and visual mode can operate subsitution and keep the flags
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 
 " config section for Syntasic
 set statusline+=%#warningmsg#
