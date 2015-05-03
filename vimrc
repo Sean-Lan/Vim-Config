@@ -44,6 +44,7 @@ filetype plugin indent on     " required
 " Comment out stuff
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-abolish'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 " some text objects
