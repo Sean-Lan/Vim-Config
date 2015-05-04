@@ -47,6 +47,8 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+" * & # for search selected text in visual mode
+Plugin 'nelstrom/vim-visual-star-search' 
 " some text objects
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'    " ae & ie
@@ -79,19 +81,6 @@ nnoremap <leader>mc :<C-u>%s/<C-r><C-w>//gn<CR><C-o>
 " let <C-p> and <C-n> have the cmd filter ability as <Up> and <Down>.
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-" in visual mode, map * and # to select the selected text.
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
-
-function! s:VSetSearch()
-    let temp = @s
-    norm! gv"sy
-    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
-    let @s = temp
-endfunction
-" let & in normal and visual mode can operate subsitution and keep the flags
-nnoremap & :&&<CR>
-xnoremap & :&&<CR>
 
 " config section for Syntasic
 set statusline+=%#warningmsg#
