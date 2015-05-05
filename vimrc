@@ -45,6 +45,9 @@ filetype plugin indent on     " required
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
+" Add key map for [b,]b, etc.
+Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 " * & # for search selected text in visual mode
@@ -53,9 +56,9 @@ Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'nelstrom/vim-qargs'
 " some text objects
 Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-entire'    " ae & ie
-Plugin 'kana/vim-textobj-function'  " if, af ,aF & iF(=af)
-Plugin 'kana/vim-textobj-lastpat'   " i/, a/(=i/), i? & a?=(i?)
+Plugin 'kana/vim-textobj-entire'
+Plugin 'kana/vim-textobj-function'
+Plugin 'kana/vim-textobj-lastpat'
 runtime macros/matchit.vim
 
 " global config section
