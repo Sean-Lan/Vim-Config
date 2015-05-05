@@ -49,6 +49,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 " * & # for search selected text in visual mode
 Plugin 'nelstrom/vim-visual-star-search' 
+" :Qargs add file in Quickfix window to arg list
+Plugin 'nelstrom/vim-qargs'
 " some text objects
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'    " ae & ie
