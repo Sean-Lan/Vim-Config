@@ -46,6 +46,8 @@ Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
+" A wrapper for ack-grep
+Plugin 'mileszs/ack.vim'
 " Add key map for [b,]b, etc.
 Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
