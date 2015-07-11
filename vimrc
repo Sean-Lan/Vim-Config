@@ -63,6 +63,9 @@ Plugin 'kana/vim-textobj-function'
 Plugin 'kana/vim-textobj-lastpat'
 runtime macros/matchit.vim
 
+" Filesystem explorer
+Plugin 'scrooloose/nerdtree'
+
 " global config section
 let mapleader = ","
 syntax on
@@ -106,3 +109,11 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
 " let g:ycm_always_populate_location_list = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" config section for NERDTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nnoremap H <C-w><C-h>
+nnoremap J <C-w><C-j>
+nnoremap K <C-w><C-k>
+nnoremap L <C-w><C-l>
