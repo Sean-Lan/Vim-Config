@@ -126,4 +126,4 @@ nnoremap w, :vertical resize -1<CR>
 nnoremap w. :vertical resize +1<CR>
 
 " key map for run current python script
-nnoremap <leader>r :!python %<CR>
+nnoremap <leader>r :w<CR>:!python %<CR>
