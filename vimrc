@@ -117,3 +117,12 @@ nnoremap H <C-w><C-h>
 nnoremap J <C-w><C-j>
 nnoremap K <C-w><C-k>
 nnoremap L <C-w><C-l>
+
+" key map for resize window
+nnoremap w= :resize +1<CR>
+nnoremap w- :resize -1<CR>
+nnoremap w, :vertical resize -1<CR>
+nnoremap w. :vertical resize +1<CR>
+
+" key map for run current python script
+nnoremap <leader>r :w<CR>:!python %<CR>
