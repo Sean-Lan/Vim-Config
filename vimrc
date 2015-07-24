@@ -84,6 +84,9 @@ set incsearch
 " :substitute cmd, so a flag I may be needed to be case-sensitive.
 set ignorecase
 set smartcase
+" for indentation of html
+let g:html_indent_inctags = "html,body,head,tbody"
+
 " keymap for close highlight search
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " keymap for count the number of matches
