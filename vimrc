@@ -46,6 +46,7 @@ Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
+Plugin 'bling/vim-airline'
 " A wrapper for ack-grep
 Plugin 'mileszs/ack.vim'
 " Add key map for [b,]b, etc.
@@ -63,6 +64,9 @@ Plugin 'kana/vim-textobj-function'
 Plugin 'kana/vim-textobj-lastpat'
 runtime macros/matchit.vim
 
+" Highlight xml tags
+Plugin 'Valloric/MatchTagAlways'
+
 " Filesystem explorer
 Plugin 'scrooloose/nerdtree'
 
@@ -78,6 +82,7 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 set path=.,/usr/include/i386-linux-gnu,,
+set backspace=2
 set incsearch
 " When the following two options are set, search will be case-insensitive iff
 " you input is all lowercase. *NOTE*: the two options will also affect the
