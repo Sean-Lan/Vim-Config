@@ -137,10 +137,6 @@ nnoremap w- :resize -1<CR>
 nnoremap w, :vertical resize -1<CR>
 nnoremap w. :vertical resize +1<CR>
 
-" key map for run current python script
-nnoremap <leader>r :w<CR>:!python %<CR>
-
-
 " compile source code
 func! CompileCode()
 exec "w"
@@ -166,7 +162,7 @@ endif
 endfunc
 
 " keymap for building the solution 
-map <leader><b> :call CompileCode()<CR>
+noremap <leader>b :call CompileCode()<CR>
 
 " keymap for running the executable
-map <leader><r> :call RunCode()<CR>
+noremap <leader>r :call RunCode()<CR>
