@@ -139,3 +139,38 @@ nnoremap w. :vertical resize +1<CR>
 
 " key map for run current python script
 nnoremap <leader>r :w<CR>:!python %<CR>
+
+
+" compile source code
+func! CompileCode()
+exec "w"
+if &filetype == "c"
+   exec "!cl %"
+elseif &filetype == "cpp"
+   exec "!cl %"
+
+elseif &filetype == "python"
+  exec "!python %"
+
+endif
+endfunc
+
+" run the executable
+func! RunCode()
+exec "w"
+if &filetype == "c" || &filetype == "cpp" || &filetype == "haskell"
+exec "! %<"
+elseif &filetype == "python"
+exec "!python %"
+endif
+endfunc
+
+" keymap for building the solution 
+map <C-b> :call CompileCode()<CR>
+imap <C-b> <ESC>:call CompileCode()<CR>
+vmap <C-b> <ESC>:call CompileCode()<CR>
+
+" keymap for running the executable
+map <C-r> :call RunCode()<CR>
+imap <C-r> <ESC>:call RunCode()<CR>
+vmap <C-r> <ESC>:call RunCode()<CR>
