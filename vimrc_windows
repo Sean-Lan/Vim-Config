@@ -166,11 +166,7 @@ endif
 endfunc
 
 " keymap for building the solution 
-map <C-b> :call CompileCode()<CR>
-imap <C-b> <ESC>:call CompileCode()<CR>
-vmap <C-b> <ESC>:call CompileCode()<CR>
+map <leader><b> :call CompileCode()<CR>
 
 " keymap for running the executable
-map <C-r> :call RunCode()<CR>
-imap <C-r> <ESC>:call RunCode()<CR>
-vmap <C-r> <ESC>:call RunCode()<CR>
+map <leader><r> :call RunCode()<CR>
