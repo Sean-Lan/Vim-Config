@@ -154,8 +154,8 @@ endfunc
 " run the executable
 func! RunCode()
 exec "w"
-if &filetype == "c" || &filetype == "cpp" || &filetype == "haskell"
-exec "! %<"
+if &filetype == "c" || &filetype == "cpp"
+exec "!%<"
 elseif &filetype == "python"
 exec "!python %"
 endif
