@@ -71,6 +71,11 @@ Plugin 'scrooloose/nerdtree'
 " High the tag in HTML
 Plugin 'Valloric/MatchTagAlways'
 
+" set encodings
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+
 " global config section
 let mapleader = ","
 syntax on
@@ -141,9 +146,9 @@ nnoremap w. :vertical resize +1<CR>
 func! CompileCode()
 exec "w"
 if &filetype == "c"
-   exec "!cl %"
+   exec "!gcc % -o %<.exe"
 elseif &filetype == "cpp"
-   exec "!cl %"
+   exec "!g++ -std=c++11 % -o %<.exe"
 
 elseif &filetype == "python"
   exec "!python %"
@@ -154,8 +159,8 @@ endfunc
 " run the executable
 func! RunCode()
 exec "w"
-if &filetype == "c" || &filetype == "cpp" || &filetype == "haskell"
-exec "! %<"
+if &filetype == "c" || &filetype == "cpp"
+exec "!%<"
 elseif &filetype == "python"
 exec "!python %"
 endif
