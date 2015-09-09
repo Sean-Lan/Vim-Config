@@ -161,3 +161,6 @@ noremap <leader>b :call CompileCode()<CR>
 
 " keymap for running the executable
 noremap <leader>r :call RunCode()<CR>
+
+" map paste option to avoid autoindent etc.
+set pastetoggle=<F5>
