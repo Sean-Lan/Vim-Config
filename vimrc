@@ -47,6 +47,7 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'bling/vim-airline'
+Plugin 'bling/vim-bufferline'
 " A wrapper for ack-grep
 Plugin 'mileszs/ack.vim'
 " Add key map for [b,]b, etc.
@@ -62,6 +63,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-function'
 Plugin 'kana/vim-textobj-lastpat'
+Plugin 'bps/vim-textobj-python'
 runtime macros/matchit.vim
 
 " Highlight xml tags
@@ -125,6 +127,12 @@ nnoremap H <C-w><C-h>
 nnoremap J <C-w><C-j>
 nnoremap K <C-w><C-k>
 nnoremap L <C-w><C-l>
+
+" config section for air-line
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'badwolf'
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+set laststatus=2
 
 " key map for resize window
 nnoremap w= :resize +1<CR>
