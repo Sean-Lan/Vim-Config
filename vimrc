@@ -172,3 +172,6 @@ noremap <leader>r :call RunCode()<CR>
 
 " map paste option to avoid autoindent etc.
 set pastetoggle=<F5>
+
+" map to clear the space in the line tail
+nnoremap <leader>c :%s/ *$//<CR>:nohl<CR>
