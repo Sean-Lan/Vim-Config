@@ -25,6 +25,7 @@ Plugin 'L9'
 Plugin 'FuzzyFinder'
 " scripts not on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'yonchu/accelerated-smooth-scroll'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 " ...
@@ -55,7 +56,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 " * & # for search selected text in visual mode
-Plugin 'nelstrom/vim-visual-star-search' 
+Plugin 'nelstrom/vim-visual-star-search'
 " :Qargs add file in Quickfix window to arg list
 Plugin 'nelstrom/vim-qargs'
 " some text objects
@@ -115,7 +116,7 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 
 " config section for YCM
-let g:ycm_confirm_extra_conf = 0 
+let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
 " let g:ycm_always_populate_location_list = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -135,10 +136,10 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 set laststatus=2
 
 " key map for resize window
-nnoremap w= :resize +1<CR>
-nnoremap w- :resize -1<CR>
-nnoremap w, :vertical resize -1<CR>
-nnoremap w. :vertical resize +1<CR>
+nnoremap <leader>w= :resize +1<CR>
+nnoremap <leader>w- :resize -1<CR>
+nnoremap <leader>w, :vertical resize -1<CR>
+nnoremap <leader>w. :vertical resize +1<CR>
 
 " compile source code
 func! CompileCode()
@@ -164,7 +165,7 @@ exec "!python %"
 endif
 endfunc
 
-" keymap for building the solution 
+" keymap for building the solution
 noremap <leader>b :call CompileCode()<CR>
 
 " keymap for running the executable
