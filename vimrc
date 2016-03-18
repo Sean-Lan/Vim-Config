@@ -74,7 +74,7 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'scrooloose/nerdtree'
 
 " global config section
-let mapleader = ","
+let mapleader = ' '
 syntax on
 set hls
 set nu
@@ -176,3 +176,8 @@ set pastetoggle=<F5>
 
 " map to clear the space in the line tail
 nnoremap <leader>c :%s/ *$//<CR>:nohl<CR>
+
+" for tmux color scheme
+if exists('$TMUX')
+  set term=screen-256color
+endif
