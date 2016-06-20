@@ -3,10 +3,10 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"let path = '~/some/path/here'
-"call vundle#rc(path)
+" let path = '~/some/path/here'
+" call vundle#begin(path)
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
@@ -26,24 +26,12 @@ Plugin 'FuzzyFinder'
 " scripts not on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'yonchu/accelerated-smooth-scroll'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" ...
 
-filetype plugin indent on     " required
-" To ignore plugin indent changes, instead use: "filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
 " Comment out stuff
-Plugin 'tpope/vim-commentary.git'
+" Plugin 'tpope/vim-commentary.git'
+Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
@@ -55,6 +43,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'mxw/vim-jsx' " For jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 " * & # for search selected text in visual mode
 Plugin 'nelstrom/vim-visual-star-search'
 " :Qargs add file in Quickfix window to arg list
@@ -72,6 +63,33 @@ Plugin 'Valloric/MatchTagAlways'
 
 " Filesystem explorer
 Plugin 'scrooloose/nerdtree'
+
+" Snips
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+" vim-react-snippets:
+Plugin 'justinj/vim-react-snippets'
+Plugin 'mattn/emmet-vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" ...
+" To ignore plugin indent changes, instead use: "filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+
 
 " global config section
 let mapleader = ' '
@@ -114,12 +132,23 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
+let g:syntastic_javascript_checkers = ['eslint']
 
 " config section for YCM
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
 " let g:ycm_always_populate_location_list = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " config section for NERDTree
 map <C-n> :NERDTreeToggle<CR>

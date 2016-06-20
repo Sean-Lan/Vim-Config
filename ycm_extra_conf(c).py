@@ -70,19 +70,17 @@ flags = [
 , '-I'
 , './ClangCompleter'
 , '-isystem'
-, '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.0.0/include'
+, '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.3.0/include'
 , '-isystem'
 , '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
 , '-isystem'
 , '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include'
-, '-isystem'
-, '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks'
+# , '-isystem'
+# , '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks'
 , '-I'
 , '/usr/include'
 , '-I'
 , '/usr/local/include'
-, '-I'
-, '/usr/include/i386-linux-gnu'
 ]
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
