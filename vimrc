@@ -43,6 +43,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx' " For jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
