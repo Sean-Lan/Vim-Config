@@ -24,8 +24,11 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 " scripts not on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'wincent/command-t'
 Plugin 'yonchu/accelerated-smooth-scroll'
+" auto
+Plugin 'Raimondi/delimitMate'
 
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
@@ -44,7 +47,9 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx' " For jsx
+Plugin 'mxw/vim-jsx'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'othree/html5.vim'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " * & # for search selected text in visual mode
@@ -139,6 +144,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
 " let g:ycm_always_populate_location_list = 1
+let g:ycm_semantic_triggers = {
+    \   'css': [ 're!^\s{4}', 're!:\s+'],
+    \   'html': [ '</' ],
+    \ }
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " make YCM compatible with UltiSnips (using supertab)
