@@ -2,14 +2,14 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " let path = '~/some/path/here'
 " call vundle#begin(path)
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between here and filetype plugin indent on.
@@ -40,11 +40,16 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
+Plugin 'vim-airline/vim-airline-themes'
+
 " A wrapper for ack-grep
 Plugin 'mileszs/ack.vim'
 " Add key map for [b,]b, etc.
 Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
+" Remember to run `npm install` in tern_for_vim plugin folder,
+" and offer a .tern-project or a global .tern-config for tern.
+Plugin 'ternjs/tern_for_vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
