@@ -84,6 +84,8 @@ Plugin 'honza/vim-snippets'
 " vim-react-snippets:
 Plugin 'justinj/vim-react-snippets'
 Plugin 'mattn/emmet-vim'
+" For formatting js, css, html
+Plugin 'maksimr/vim-jsbeautify'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -176,6 +178,18 @@ let g:airline_theme = 'badwolf'
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 set laststatus=2
 
+" config section for jsbeautify
+autocmd FileType javascript noremap <leader>f :call JsBeautify()<cr>
+autocmd FileType json noremap <leader>f :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <leader>f :call JsxBeautify()<cr>
+autocmd FileType html noremap <leader>f :call HtmlBeautify()<cr>
+autocmd FileType css noremap <leader>f :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <leader>f :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <leader>f :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <leader>f :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <leader>f :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <leader>f :call RangeCSSBeautify()<cr>
+
 " key map for resize window
 nnoremap <leader>w= :resize +1<CR>
 nnoremap <leader>w- :resize -1<CR>
@@ -218,7 +232,7 @@ noremap <leader>r :call RunCode()<CR>
 set pastetoggle=<F5>
 
 " map to clear the space in the line tail
-nnoremap <leader>c :%s/ *$//<CR>:nohl<CR>
+nnoremap <leader>c :%s/ *$//<CR>:normal! ``<CR>:nohl<CR>
 
 " for tmux color scheme
 if exists('$TMUX')
@@ -231,7 +245,7 @@ execute "set shiftwidth=".tab_width
 execute "set softtabstop=".tab_width
 set expandtab
 " allow toggling between local and default mode
-function! TabToggle()
+func! TabToggle()
   if &expandtab
     set shiftwidth=8
     set softtabstop=0
@@ -242,4 +256,4 @@ function! TabToggle()
     set expandtab
   endif
 endfunction
-nmap <F9> mz:execute TabToggle()<CR>'z
+nmap <F9> mz:execute TabToggle()<CR>`z
