@@ -179,16 +179,16 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 set laststatus=2
 
 " config section for jsbeautify
-autocmd FileType javascript noremap <leader>f :call JsBeautify()<cr>
-autocmd FileType json noremap <leader>f :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <leader>f :call JsxBeautify()<cr>
-autocmd FileType html noremap <leader>f :call HtmlBeautify()<cr>
-autocmd FileType css noremap <leader>f :call CSSBeautify()<cr>
-autocmd FileType javascript vnoremap <leader>f :call RangeJsBeautify()<cr>
-autocmd FileType json vnoremap <leader>f :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <leader>f :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <leader>f :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <leader>f :call RangeCSSBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <leader>f :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <leader>f :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <leader>f :call JsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer> <leader>f :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <leader>f :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <leader>f :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <leader>f :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <leader>f :call RangeCSSBeautify()<cr>
 
 " key map for resize window
 nnoremap <leader>w= :resize +1<CR>
@@ -257,3 +257,7 @@ func! TabToggle()
   endif
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>`z
+
+" Transform selected html tag into js string.
+vmap <silent> <leader>q :s/^\(\s*\)\(.*\)\s*$/\1 + '\2'/<CR>:nohl<CR>
+vmap <silent> <leader>h :s/^\(\s*\) + '\([^']*\)',*\s*$/\1\2/g<CR>:nohl<CR>
