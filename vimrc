@@ -203,6 +203,8 @@ if &filetype == "c" || &filetype == "cpp"
 exec "!./%<"
 elseif &filetype == "python"
 exec "!python %"
+elseif &filetype == "html"
+exec "!open %"
 endif
 endfunc
 
