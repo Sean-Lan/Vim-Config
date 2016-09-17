@@ -25,6 +25,7 @@ Plugin 'L9'
 Plugin 'FuzzyFinder'
 " scripts not on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
+" Remember to compile command-t
 Plugin 'wincent/command-t'
 Plugin 'yonchu/accelerated-smooth-scroll'
 " auto
@@ -109,10 +110,6 @@ set hls
 set nu
 set cursorline
 set cursorcolumn
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set expandtab
 set path=.,/usr/include/i386-linux-gnu,,
 set backspace=2
 set incsearch
@@ -225,3 +222,22 @@ nnoremap <leader>c :%s/ *$//<CR>:nohl<CR>
 if exists('$TMUX')
   set term=screen-256color
 endif
+
+" virtual tabstops using spaces
+let tab_width=4
+execute "set shiftwidth=".tab_width
+execute "set softtabstop=".tab_width
+set expandtab
+" allow toggling between local and default mode
+function! TabToggle()
+  if &expandtab
+    set shiftwidth=8
+    set softtabstop=0
+    set noexpandtab
+  else
+    execute "set shiftwidth=".g:tab_width
+    execute "set softtabstop=".g:tab_width
+    set expandtab
+  endif
+endfunction
+nmap <F9> mz:execute TabToggle()<CR>'z
