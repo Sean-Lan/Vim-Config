@@ -219,6 +219,8 @@ elseif &filetype == "python"
 exec "!python %"
 elseif &filetype == "html"
 exec "!open %"
+elseif &filetype == "sh"
+exec "!env bash %"
 endif
 endfunc
 
