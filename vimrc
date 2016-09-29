@@ -86,6 +86,8 @@ Plugin 'justinj/vim-react-snippets'
 Plugin 'mattn/emmet-vim'
 " For formatting js, css, html
 Plugin 'maksimr/vim-jsbeautify'
+" Java Auto-complete
+Plugin 'artur-shaik/vim-javacomplete2'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -203,10 +205,10 @@ if &filetype == "c"
    exec "!gcc % -o %<"
 elseif &filetype == "cpp"
    exec "!g++ -std=c++11 % -o %<"
-
 elseif &filetype == "python"
   exec "!python %"
-
+elseif &filetype == "java"
+  exec "!javac %"
 endif
 endfunc
 
@@ -214,13 +216,15 @@ endfunc
 func! RunCode()
 exec "w"
 if &filetype == "c" || &filetype == "cpp"
-exec "!./%<"
+    exec "!./%<"
 elseif &filetype == "python"
-exec "!python %"
+    exec "!python %"
 elseif &filetype == "html"
-exec "!open %"
+    exec "!open %"
 elseif &filetype == "sh"
-exec "!env bash %"
+    exec "!env bash %"
+elseif &filetype == "java"
+    exec "!java %<"
 endif
 endfunc
 
@@ -263,3 +267,9 @@ nmap <F9> mz:execute TabToggle()<CR>`z
 " Transform selected html tag into js string.
 vmap <silent> <leader>q :s/^\(\s*\)\(.*\)\s*$/\1 + '\2'/<CR>:nohl<CR>
 vmap <silent> <leader>h :s/^\(\s*\) + '\([^']*\)',*\s*$/\1\2/g<CR>:nohl<CR>
+
+" Remap Command-T plugin
+nnoremap <silent> <Leader>g <Plug>(CommandTJump)
+
+" For Java Auto-complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
