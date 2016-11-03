@@ -117,6 +117,7 @@ set cursorcolumn
 set path=.,/usr/include/i386-linux-gnu,,
 set backspace=2
 set incsearch
+colorscheme elflord
 " When the following two options are set, search will be case-insensitive iff
 " you input is all lowercase. *NOTE*: the two options will also affect the
 " :substitute cmd, so a flag I may be needed to be case-sensitive.
