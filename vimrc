@@ -88,6 +88,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'maksimr/vim-jsbeautify'
 " Java Auto-complete
 Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
