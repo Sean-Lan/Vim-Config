@@ -248,10 +248,14 @@ if exists('$TMUX')
 endif
 
 " virtual tabstops using spaces
-let tab_width=4
-execute "set shiftwidth=".tab_width
-execute "set softtabstop=".tab_width
+let g:tab_width=4
+execute "set shiftwidth=".g:tab_width
+execute "set softtabstop=".g:tab_width
 set expandtab
+autocmd FileType javascript setl sw=2 sts=2
+autocmd FileType json setl sw=2 sts=2
+autocmd FileType jsx setl sw=2 sts=2
+
 " allow toggling between local and default mode
 func! TabToggle()
   if &expandtab
