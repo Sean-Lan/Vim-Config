@@ -81,8 +81,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-" vim-react-snippets:
-Plugin 'justinj/vim-react-snippets'
 Plugin 'mattn/emmet-vim'
 " For formatting js, css, html
 Plugin 'maksimr/vim-jsbeautify'
