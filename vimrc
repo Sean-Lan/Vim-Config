@@ -88,6 +88,9 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'mustache/vim-mustache-handlebars'
 
+" For Dash
+Plugin 'rizzatti/dash.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -277,3 +280,6 @@ nnoremap <silent> <Leader>g <Plug>(CommandTJump)
 
 " For Java Auto-complete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" For Dash searching
+nmap <silent> <leader>d <Plug>DashSearch
