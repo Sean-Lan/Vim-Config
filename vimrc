@@ -283,3 +283,5 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " For Dash searching
 nmap <silent> <leader>d <Plug>DashSearch
+" not bring Dash to the foreground
+let g:dash_activate = 0
