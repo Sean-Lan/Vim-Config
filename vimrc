@@ -91,6 +91,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 " For Dash
 Plugin 'rizzatti/dash.vim'
 
+" For Nginx
+Plugin 'nginx.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
