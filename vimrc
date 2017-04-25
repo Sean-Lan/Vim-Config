@@ -231,6 +231,8 @@ elseif &filetype == "sh"
     exec "!env bash %"
 elseif &filetype == "java"
     exec "!java %<"
+elseif &filetype == "lua"
+    exec "!env lua %"
 endif
 endfunc
 
