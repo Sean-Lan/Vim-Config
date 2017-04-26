@@ -92,7 +92,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rizzatti/dash.vim'
 
 " For Nginx
-Plugin 'nginx.vim'
+Plugin 'Sean-Lan/vim-nginx'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -261,6 +261,7 @@ set expandtab
 autocmd FileType javascript setl sw=2 sts=2
 autocmd FileType json setl sw=2 sts=2
 autocmd FileType jsx setl sw=2 sts=2
+autocmd FileType lua setl sw=2 sts=2
 
 " allow toggling between local and default mode
 func! TabToggle()
