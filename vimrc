@@ -262,6 +262,7 @@ autocmd FileType javascript setl sw=2 sts=2
 autocmd FileType json setl sw=2 sts=2
 autocmd FileType jsx setl sw=2 sts=2
 autocmd FileType lua setl sw=2 sts=2
+autocmd FileType ruby setl sw=2 sts=2
 
 " allow toggling between local and default mode
 func! TabToggle()
