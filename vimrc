@@ -94,6 +94,12 @@ Plugin 'rizzatti/dash.vim'
 " For Nginx
 Plugin 'Sean-Lan/vim-nginx'
 
+" For haskell
+Plugin 'shougo/vimproc.vim'
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -144,6 +150,12 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" for haskell
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+let g:necoghc_enable_detailed_browse = 1
+
 " let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -159,8 +171,16 @@ let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
 let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+'],
     \   'html': [ '</' ],
+    \   'haskell': ['.']
     \ }
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" config section for neocomplete
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
