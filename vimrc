@@ -169,10 +169,10 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
 " let g:ycm_always_populate_location_list = 1
 let g:ycm_semantic_triggers = {
-    \   'css': [ 're!^\s{4}', 're!:\s+'],
-    \   'html': [ '</' ],
-    \   'haskell': ['.']
-    \ }
+      \   'css': [ 're!^\s{4}', 're!:\s+'],
+      \   'html': [ '</' ],
+      \   'haskell': ['.']
+      \ }
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " config section for neocomplete
@@ -226,34 +226,38 @@ nnoremap <leader>w. :vertical resize +1<CR>
 
 " compile source code
 func! CompileCode()
-exec "w"
-if &filetype == "c"
-   exec "!gcc % -o %<"
-elseif &filetype == "cpp"
-   exec "!g++ -std=c++11 % -o %<"
-elseif &filetype == "python"
-  exec "!python %"
-elseif &filetype == "java"
-  exec "!javac %"
-endif
+  exec "w"
+  if &filetype == "c"
+    exec "!gcc % -o %<"
+  elseif &filetype == "cpp"
+    exec "!g++ -std=c++11 % -o %<"
+  elseif &filetype == "python"
+    exec "!python %"
+  elseif &filetype == "java"
+    exec "!javac %"
+  elseif &filetype == "go"
+    exec "!go build %"
+  endif
 endfunc
 
 " run the executable
 func! RunCode()
-exec "w"
-if &filetype == "c" || &filetype == "cpp"
+  exec "w"
+  if &filetype == "c" || &filetype == "cpp"
     exec "!./%<"
-elseif &filetype == "python"
+  elseif &filetype == "python"
     exec "!python %"
-elseif &filetype == "html"
+  elseif &filetype == "html"
     exec "!open %"
-elseif &filetype == "sh"
+  elseif &filetype == "sh"
     exec "!env bash %"
-elseif &filetype == "java"
+  elseif &filetype == "java"
     exec "!java %<"
-elseif &filetype == "lua"
+  elseif &filetype == "lua"
     exec "!env lua %"
-endif
+  elseif &filetype == "go"
+    exec "!go run %"
+  endif
 endfunc
 
 " keymap for building the solution
@@ -274,15 +278,12 @@ if exists('$TMUX')
 endif
 
 " virtual tabstops using spaces
-let g:tab_width=4
+let g:tab_width=2
 execute "set shiftwidth=".g:tab_width
 execute "set softtabstop=".g:tab_width
 set expandtab
-autocmd FileType javascript setl sw=2 sts=2
-autocmd FileType json setl sw=2 sts=2
-autocmd FileType jsx setl sw=2 sts=2
-autocmd FileType lua setl sw=2 sts=2
-autocmd FileType ruby setl sw=2 sts=2
+autocmd FileType cpp setl sw=4 sts=4
+autocmd FileType python setl sw=4 sts=4
 
 " allow toggling between local and default mode
 func! TabToggle()
