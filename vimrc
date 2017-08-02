@@ -76,6 +76,12 @@ Plugin 'Valloric/MatchTagAlways'
 " Filesystem explorer
 Plugin 'scrooloose/nerdtree'
 
+" nerdtree git plug
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" git diff in gutter
+Plugin 'airblade/vim-gitgutter'
+
 " Snips
 " Track the engine.
 Plugin 'SirVer/ultisnips'
@@ -99,6 +105,9 @@ Plugin 'shougo/vimproc.vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
+
+" For Vue
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
