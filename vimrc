@@ -256,6 +256,8 @@ func! RunCode()
     exec "!./%<"
   elseif &filetype == "python"
     exec "!python %"
+  elseif &filetype == "ruby"
+    exec "!ruby %"
   elseif &filetype == "html"
     exec "!open %"
   elseif &filetype == "sh"
