@@ -39,9 +39,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
-Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " A wrapper for ack-grep
 Plugin 'mileszs/ack.vim'
@@ -210,10 +209,6 @@ nnoremap J <C-w><C-j>
 nnoremap K <C-w><C-k>
 nnoremap L <C-w><C-l>
 
-" config section for air-line
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'badwolf'
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 set laststatus=2
 
 " config section for jsbeautify
