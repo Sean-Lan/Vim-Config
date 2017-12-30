@@ -320,3 +320,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 nmap <silent> <leader>d <Plug>DashSearch
 " not bring Dash to the foreground
 let g:dash_activate = 0
+
+" use ag to perform the search
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
