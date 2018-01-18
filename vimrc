@@ -19,10 +19,10 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-rails.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " scripts from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-Plugin 'FuzzyFinder'
+" Plugin 'L9'
+" Plugin 'FuzzyFinder'
 " scripts not on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
 " Remember to compile command-t
@@ -39,7 +39,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
-Plugin 'bling/vim-bufferline'
+" Plugin 'bling/vim-bufferline'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " A wrapper for ack-grep
@@ -49,7 +49,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 " Remember to run `npm install` in tern_for_vim plugin folder,
 " and offer a .tern-project or a global .tern-config for tern.
-Plugin 'ternjs/tern_for_vim'
+" Plugin 'ternjs/tern_for_vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -60,7 +60,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " * & # for search selected text in visual mode
 Plugin 'nelstrom/vim-visual-star-search'
 " :Qargs add file in Quickfix window to arg list
-Plugin 'nelstrom/vim-qargs'
+" Plugin 'nelstrom/vim-qargs'
 " some text objects
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
@@ -83,30 +83,30 @@ Plugin 'airblade/vim-gitgutter'
 
 " Snips
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-Plugin 'mattn/emmet-vim'
+" Plugin 'honza/vim-snippets'
+" Plugin 'mattn/emmet-vim'
 " For formatting js, css, html
 Plugin 'maksimr/vim-jsbeautify'
 " Java Auto-complete
-Plugin 'artur-shaik/vim-javacomplete2'
-Plugin 'mustache/vim-mustache-handlebars'
+" Plugin 'artur-shaik/vim-javacomplete2'
+" Plugin 'mustache/vim-mustache-handlebars'
 
 " For Dash
-Plugin 'rizzatti/dash.vim'
+" Plugin 'rizzatti/dash.vim'
 
 " For Nginx
 Plugin 'Sean-Lan/vim-nginx'
 
 " For haskell
-Plugin 'shougo/vimproc.vim'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'eagletmt/neco-ghc'
+" Plugin 'shougo/vimproc.vim'
+" Plugin 'neovimhaskell/haskell-vim'
+" Plugin 'eagletmt/ghcmod-vim'
+" Plugin 'eagletmt/neco-ghc'
 
 " For Vue
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -131,9 +131,10 @@ let mapleader = ' '
 syntax on
 set hls
 set nu
-set cursorline
-set cursorcolumn
-set path=.,/usr/include/i386-linux-gnu,,
+" set cursorline
+" set cursorcolumn
+" set path=.,/usr/include/i386-linux-gnu,,
+set ttyfast
 set backspace=2
 set incsearch
 set colorcolumn=81 " show a red vertical line when one row is too long
@@ -183,13 +184,6 @@ let g:ycm_semantic_triggers = {
       \   'haskell': ['.']
       \ }
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" config section for neocomplete
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -314,12 +308,12 @@ vmap <silent> <leader>h :s/^\(\s*\) + '\([^']*\)',*\s*$/\1\2/g<CR>:nohl<CR>
 nnoremap <silent> <Leader>g <Plug>(CommandTJump)
 
 " For Java Auto-complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " For Dash searching
-nmap <silent> <leader>d <Plug>DashSearch
+" nmap <silent> <leader>d <Plug>DashSearch
 " not bring Dash to the foreground
-let g:dash_activate = 0
+" let g:dash_activate = 0
 
 " use ag to perform the search
 let g:ackprg = 'ag --nogroup --nocolor --column'
