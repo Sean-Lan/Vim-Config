@@ -34,7 +34,6 @@ Plugin 'Raimondi/delimitMate'
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
 " Comment out stuff
-" Plugin 'tpope/vim-commentary.git'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-abolish'
@@ -131,6 +130,8 @@ let mapleader = ' '
 syntax on
 set hls
 set nu
+set history=200
+set mouse=a " enable mouse
 " set cursorline
 " set cursorcolumn
 " set path=.,/usr/include/i386-linux-gnu,,
@@ -138,12 +139,16 @@ set ttyfast
 set backspace=2
 set incsearch
 set colorcolumn=81 " show a red vertical line when one row is too long
+" make command auto-completion like zsh
+set wildmenu
+set wildmode=full
 colorscheme elflord
 " When the following two options are set, search will be case-insensitive iff
 " you input is all lowercase. *NOTE*: the two options will also affect the
 " :substitute cmd, so a flag I may be needed to be case-sensitive.
 set ignorecase
 set smartcase
+set nrformats= "make all numbers in decimalism
 " for indentation of html
 let g:html_indent_inctags = "html,body,head,tbody"
 
@@ -154,6 +159,12 @@ nnoremap <leader>mc :<C-u>%s/<C-r><C-w>//gn<CR><C-o>
 " let <C-p> and <C-n> have the cmd filter ability as <Up> and <Down>.
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+" map %% to current file's dirname
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" search and move the target to the center
+noremap <leader>n nzz
+noremap <leader>N Nzz
 
 " config section for Syntasic
 set statusline+=%#warningmsg#
@@ -173,6 +184,7 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 " config section for YCM
 let g:ycm_confirm_extra_conf = 0
@@ -192,6 +204,11 @@ let g:ycm_semantic_triggers = {
       \   'cs,lua,javascript': ['re!\w{2}'],
       \   'haskell': ['.']
       \ }
+let g:ycm_filetype_blacklist = {
+      \   'json': 1,
+      \   'text': 1,
+      \   'markdown': 1
+      \ }
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " make YCM compatible with UltiSnips (using supertab)
@@ -207,10 +224,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " config section for NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-nnoremap H <C-w><C-h>
-nnoremap J <C-w><C-j>
-nnoremap K <C-w><C-k>
-nnoremap L <C-w><C-l>
+" nnoremap H <C-w><C-h>
+" nnoremap J <C-w><C-j>
+" nnoremap K <C-w><C-k>
+" nnoremap L <C-w><C-l>
 
 set laststatus=2
 
