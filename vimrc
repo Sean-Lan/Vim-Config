@@ -105,7 +105,7 @@ Plugin 'Sean-Lan/vim-nginx'
 " Plugin 'eagletmt/neco-ghc'
 
 " For Vue
-" Plugin 'posva/vim-vue'
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
