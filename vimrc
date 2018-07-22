@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 " scripts on GitHub repos
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-rails.git'
+" Plugin 'tpope/vim-rails.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -48,7 +48,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 " Remember to run `npm install` in tern_for_vim plugin folder,
 " and offer a .tern-project or a global .tern-config for tern.
-" Plugin 'ternjs/tern_for_vim'
+Plugin 'ternjs/tern_for_vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -87,7 +87,7 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'honza/vim-snippets'
 " Plugin 'mattn/emmet-vim'
 " For formatting js, css, html
-Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'maksimr/vim-jsbeautify'
 " Java Auto-complete
 " Plugin 'artur-shaik/vim-javacomplete2'
 " Plugin 'mustache/vim-mustache-handlebars'
@@ -96,7 +96,7 @@ Plugin 'maksimr/vim-jsbeautify'
 " Plugin 'rizzatti/dash.vim'
 
 " For Nginx
-Plugin 'Sean-Lan/vim-nginx'
+" Plugin 'Sean-Lan/vim-nginx'
 
 " For haskell
 " Plugin 'shougo/vimproc.vim'
@@ -105,7 +105,7 @@ Plugin 'Sean-Lan/vim-nginx'
 " Plugin 'eagletmt/neco-ghc'
 
 " For Vue
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -167,9 +167,9 @@ noremap <leader>n nzz
 noremap <leader>N Nzz
 
 " config section for Syntasic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 " for haskell
 " Disable haskell-vim omnifunc
@@ -344,3 +344,7 @@ nnoremap <silent> <Leader>g <Plug>(CommandTJump)
 " use ag to perform the search
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" temoral hack for silent error & warnings
+if has('python3')
+  silent! python3 1
+endif
