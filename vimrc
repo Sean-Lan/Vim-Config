@@ -88,7 +88,7 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'honza/vim-snippets'
 " Plugin 'mattn/emmet-vim'
 " For formatting js, css, html
-Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'maksimr/vim-jsbeautify'
 " Java Auto-complete
 " Plugin 'artur-shaik/vim-javacomplete2'
 " Plugin 'mustache/vim-mustache-handlebars'
@@ -213,18 +213,6 @@ let g:ctrlp_user_command = 'find %s -type f | egrep -iv "(\.(eot|gif|gz|ico|jpg|
 
 " make :Gbrowse to open the GitHub page for musta
 let g:fugitive_github_domains = ['github.com', 'git.musta.ch']
-
-" config section for jsbeautify
-autocmd FileType javascript noremap <buffer> <leader>f :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <leader>f :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <leader>f :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
-autocmd FileType javascript vnoremap <buffer> <leader>f :call RangeJsBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <leader>f :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <leader>f :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <leader>f :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <leader>f :call RangeCSSBeautify()<cr>
 
 " key map for resize window
 nnoremap <leader>w= :resize +1<CR>
