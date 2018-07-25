@@ -55,7 +55,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " * & # for search selected text in visual mode
 Plugin 'nelstrom/vim-visual-star-search'
