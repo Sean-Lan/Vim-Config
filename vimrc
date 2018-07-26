@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between here and filetype plugin indent on.
 " scripts on GitHub repos
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb' " enable :Gbrowse for fugitive
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-endwise' " automatically add `end`
