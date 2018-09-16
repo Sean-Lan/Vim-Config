@@ -333,8 +333,14 @@ nnoremap <Leader>w :w<CR>
 " not bring Dash to the foreground
 " let g:dash_activate = 0
 
-" use ag to perform the search
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" use ag for search
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" never jump to the first result automatically
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
 
 " temoral hack for silent error & warnings
 if has('python3')
