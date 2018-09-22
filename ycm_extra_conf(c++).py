@@ -66,7 +66,7 @@ flags = [
 , '-isystem'
 , '/usr/local/include'
 , '-isystem'
-, '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include'
+, '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include'
 , '-isystem'
 , '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include'
 , '-isystem'

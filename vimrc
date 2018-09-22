@@ -15,8 +15,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between here and filetype plugin indent on.
 " scripts on GitHub repos
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb' " enable :Gbrowse for fugitive
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-endwise' " automatically add `end`
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -48,13 +50,12 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Valloric/YouCompleteMe'
 " Remember to run `npm install` in tern_for_vim plugin folder,
 " and offer a .tern-project or a global .tern-config for tern.
-" Plugin 'ternjs/tern_for_vim'
+Plugin 'ternjs/tern_for_vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " * & # for search selected text in visual mode
 Plugin 'nelstrom/vim-visual-star-search'
@@ -87,7 +88,7 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'honza/vim-snippets'
 " Plugin 'mattn/emmet-vim'
 " For formatting js, css, html
-Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'maksimr/vim-jsbeautify'
 " Java Auto-complete
 " Plugin 'artur-shaik/vim-javacomplete2'
 " Plugin 'mustache/vim-mustache-handlebars'
@@ -96,7 +97,7 @@ Plugin 'maksimr/vim-jsbeautify'
 " Plugin 'rizzatti/dash.vim'
 
 " For Nginx
-Plugin 'Sean-Lan/vim-nginx'
+" Plugin 'Sean-Lan/vim-nginx'
 
 " For haskell
 " Plugin 'shougo/vimproc.vim'
@@ -105,7 +106,7 @@ Plugin 'Sean-Lan/vim-nginx'
 " Plugin 'eagletmt/neco-ghc'
 
 " For Vue
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -138,7 +139,17 @@ set mouse=a " enable mouse
 set ttyfast
 set backspace=2
 set incsearch
-set colorcolumn=81 " show a red vertical line when one row is too long
+set encoding=utf-8
+
+" improve tab-completion for commands
+set wildmenu " show options as list when switching buffers etc
+set wildmode=longest:full,full " shell-like autocomplete to unambiguous portion
+
+if exists('+colorcolumn')
+  set colorcolumn=+1 " vertical line at textwidth characters
+endif
+
+set textwidth=80
 " make command auto-completion like zsh
 set wildmenu
 set wildmode=full
@@ -167,49 +178,17 @@ noremap <leader>n nzz
 noremap <leader>N Nzz
 
 " config section for Syntasic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 " for haskell
 " Disable haskell-vim omnifunc
-let g:haskellmode_completion_ghc = 0
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-let g:necoghc_enable_detailed_browse = 1
-
-" let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+" let g:haskellmode_completion_ghc = 0
+" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" let g:necoghc_enable_detailed_browse = 1
 
 " config section for YCM
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '~/Vim-Config/ycm_extra_conf(c).py'
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_server_log_level = 'info'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings=1
-set completeopt=menu,menuone
-" let g:ycm_always_populate_location_list = 1
-let g:ycm_semantic_triggers = {
-      \   'css': [ 're!^\s{4}', 're!:\s+'],
-      \   'html': [ '</' ],
-      \   'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-      \   'cs,lua,javascript': ['re!\w{2}'],
-      \   'haskell': ['.']
-      \ }
-let g:ycm_filetype_blacklist = {
-      \   'json': 1,
-      \   'text': 1,
-      \   'markdown': 1
-      \ }
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " make YCM compatible with UltiSnips (using supertab)
 " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -221,27 +200,30 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" config section for NERDTree
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " nnoremap H <C-w><C-h>
 " nnoremap J <C-w><C-j>
 " nnoremap K <C-w><C-k>
 " nnoremap L <C-w><C-l>
 
 set laststatus=2
+" always keeps 5 line to the bottom when vertical scrolling
+set scrolloff=5
+" keep an undo file (.un~) when currect session ended
+set undofile
+" put backup, swap and undo file into a centralized place
+" remember to create those directories!
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+" auto change cwd
+set autochdir
 
-" config section for jsbeautify
-autocmd FileType javascript noremap <buffer> <leader>f :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <leader>f :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <leader>f :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
-autocmd FileType javascript vnoremap <buffer> <leader>f :call RangeJsBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <leader>f :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <leader>f :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <leader>f :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <leader>f :call RangeCSSBeautify()<cr>
+" Faster Ctrl-P search
+let g:ctrlp_lazy_update = 100 "Only refreshes the results every 100ms so if you type fast searches don’t pile up
+let g:ctrlp_user_command = 'find %s -type f | egrep -iv "(\.(eot|gif|gz|ico|jpg|jpeg|otf|png|psd|pyc|svg|ttf|woff|zip)$)|(/\.)|((^|\/)tmp\/)"' "Quicker indexing
+
+" make :Gbrowse to open the GitHub page for mus
+let g:fugitive_github_domains = ['github.com', 'git.musta.ch']
 
 " key map for resize window
 nnoremap <leader>w= :resize +1<CR>
@@ -304,13 +286,31 @@ if exists('$TMUX')
   set term=screen-256color
 endif
 
-" virtual tabstops using spaces
-let g:tab_width=2
-execute "set shiftwidth=".g:tab_width
-execute "set softtabstop=".g:tab_width
-set expandtab
-autocmd FileType cpp setl sw=4 sts=4
-autocmd FileType python setl sw=4 sts=4
+" Use two-space indentation
+set autoindent " keep indentation when starting new lines
+set tabstop=2 " spaces per tab
+set softtabstop=1 " spaces per tab (when tabbing/backspacing)
+set shiftwidth=2 " spaces per tab (when shifting)
+set expandtab " always use spaces instead of tabs
+au BufWinEnter,BufNewFile * silent tab
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Improve automatic formatting
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j " remove comment leader when joining comment lines
+endif
+
+set formatoptions+=c " auto-wrap comments using textwidth
+set formatoptions+=n " smart auto-indenting inside numbered lists
+set formatoptions+=q " allow formatting of comments with gq
+set nojoinspaces " don’t autoinsert two spaces after ’.’, ’?’, ’!’ for join command
 
 " allow toggling between local and default mode
 func! TabToggle()
@@ -333,6 +333,9 @@ vmap <silent> <leader>h :s/^\(\s*\) + '\([^']*\)',*\s*$/\1\2/g<CR>:nohl<CR>
 " Remap Command-T plugin
 nnoremap <silent> <Leader>g <Plug>(CommandTJump)
 
+" easy save
+nnoremap <Leader>w :w<CR>
+
 " For Java Auto-complete
 " autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
@@ -341,6 +344,16 @@ nnoremap <silent> <Leader>g <Plug>(CommandTJump)
 " not bring Dash to the foreground
 " let g:dash_activate = 0
 
-" use ag to perform the search
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" use ag for search
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
+" never jump to the first result automatically
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+" temoral hack for silent error & warnings
+if has('python3')
+  silent! python3 1
+endif
