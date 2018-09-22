@@ -206,12 +206,23 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " nnoremap L <C-w><C-l>
 
 set laststatus=2
+" always keeps 5 line to the bottom when vertical scrolling
+set scrolloff=5
+" keep an undo file (.un~) when currect session ended
+set undofile
+" put backup, swap and undo file into a centralized place
+" remember to create those directories!
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+" auto change cwd
+set autochdir
 
 " Faster Ctrl-P search
 let g:ctrlp_lazy_update = 100 "Only refreshes the results every 100ms so if you type fast searches don’t pile up
 let g:ctrlp_user_command = 'find %s -type f | egrep -iv "(\.(eot|gif|gz|ico|jpg|jpeg|otf|png|psd|pyc|svg|ttf|woff|zip)$)|(/\.)|((^|\/)tmp\/)"' "Quicker indexing
 
-" make :Gbrowse to open the GitHub page for musta
+" make :Gbrowse to open the GitHub page for mus
 let g:fugitive_github_domains = ['github.com', 'git.musta.ch']
 
 " key map for resize window
