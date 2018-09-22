@@ -216,7 +216,7 @@ set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 set undodir=~/.vim/.undo//
 " auto change cwd
-set autochdir
+" set autochdir
 
 " Faster Ctrl-P search
 let g:ctrlp_lazy_update = 100 "Only refreshes the results every 100ms so if you type fast searches don’t pile up
