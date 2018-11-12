@@ -335,8 +335,9 @@ nmap <F9> mz:execute TabToggle()<CR>`z
 vmap <silent> <leader>q :s/^\(\s*\)\(.*\)\s*$/\1 + '\2'/<CR>:nohl<CR>
 vmap <silent> <leader>h :s/^\(\s*\) + '\([^']*\)',*\s*$/\1\2/g<CR>:nohl<CR>
 
-" Remap Command-T plugin
+" config Command-T plugin
 nnoremap <silent> <Leader>g <Plug>(CommandTJump)
+let g:CommandTWildIgnore=&wildignore . ",*/node_modules/*,*/coverage/*"
 
 " easy save
 nnoremap <Leader>w :w<CR>
