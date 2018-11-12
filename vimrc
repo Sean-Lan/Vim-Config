@@ -312,6 +312,11 @@ set formatoptions+=n " smart auto-indenting inside numbered lists
 set formatoptions+=q " allow formatting of comments with gq
 set nojoinspaces " don’t autoinsert two spaces after ’.’, ’?’, ’!’ for join command
 
+" font
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+highlight Comment cterm=italic
+
 " allow toggling between local and default mode
 func! TabToggle()
   if &expandtab
@@ -353,7 +358,7 @@ endif
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
-" temoral hack for silent error & warnings
+" temporal hack for silent error & warnings
 if has('python3')
   silent! python3 1
 endif
