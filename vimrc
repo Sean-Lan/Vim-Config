@@ -1,6 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" install fzf: https://github.com/junegunn/fzf#as-vim-plugin
+set rtp+=/usr/local/opt/fzf
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -16,8 +19,9 @@ Plugin 'VundleVim/Vundle.vim'
 " scripts on GitHub repos
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb' " enable :Gbrowse for fugitive
+Plugin 'junegunn/fzf.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-rails.git'
+" Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-endwise' " automatically add `end`
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
@@ -360,6 +364,9 @@ endif
 " never jump to the first result automatically
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
+
+" fzf
+nnoremap <C-p> :<C-u>FZF<CR>
 
 " temporal hack for silent error & warnings
 if has('python3')
