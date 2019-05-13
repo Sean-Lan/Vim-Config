@@ -15,6 +15,13 @@ let g:syntastic_loc_list_height = 5
 " Don’t run checkers when saving and quitting--only on saving
 let g:syntastic_check_on_wq = 0
 
+" Don't run checkers on saving
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_mode_map = {
+        \ "mode": "passive",
+        \ "active_filetypes": ['ruby', 'python', 'cpp'],
+        \ "passive_filetypes": ['typescript', 'javascript'] }
+
 let g:syntastic_error_symbol         = '✖'
 let g:syntastic_warning_symbol       = '⚠'
 let g:syntastic_style_error_symbol   = '⚠'
