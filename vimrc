@@ -59,7 +59,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'Quramy/tsuquyomi'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
 
@@ -172,7 +173,7 @@ let g:html_indent_inctags = "html,body,head,tbody"
 " keymap for close highlight search
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " keymap for count the number of matches
-nnoremap <leader>mc :<C-u>%s/<C-r><C-w>//gn<CR><C-o>
+" nnoremap <leader>mc :<C-u>%s/<C-r><C-w>//gn<CR><C-o>
 " let <C-p> and <C-n> have the cmd filter ability as <Up> and <Down>.
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -365,8 +366,19 @@ endif
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
+" trigger SyntasticCheck
+nnoremap <Leader>s :SyntasticCheck<CR>
+
+" trigger jest
+nnoremap <Leader>j :!npm run jest %<CR>
+
 " fzf
 nnoremap <C-p> :<C-u>FZF<CR>
+
+" copy current filename into clipboard
+nnoremap <Leader>n :let @+ = expand("%")<CR>
+" absolute path
+nnoremap <Leader>m :let @+ = expand("%:p")<CR>
 
 " temporal hack for silent error & warnings
 if has('python3')
