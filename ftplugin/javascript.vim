@@ -1,5 +1,5 @@
 set path=.,src,frontend,
-set suffixesadd=.js,.jsx
+set suffixesadd=.js,.jsx,.ts,.tsx
 
 function! LoadFromMonorail(fname)
   let monorail = "./app/assets/javascripts/"
