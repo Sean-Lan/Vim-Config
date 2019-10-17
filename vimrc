@@ -51,7 +51,7 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'mileszs/ack.vim'
 " Add key map for [b,]b, etc.
 Plugin 'tpope/vim-unimpaired'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 " Remember to run `npm install` in tern_for_vim plugin folder,
 " and offer a .tern-project or a global .tern-config for tern.
 Plugin 'ternjs/tern_for_vim'
@@ -59,6 +59,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'hail2u/vim-css3-syntax'
@@ -156,7 +157,7 @@ if exists('+colorcolumn')
   set colorcolumn=+1 " vertical line at textwidth characters
 endif
 
-set textwidth=80
+set textwidth=100
 " make command auto-completion like zsh
 set wildmenu
 set wildmode=full
