@@ -29,3 +29,18 @@ function! LoadFile(fname)
 endfunction
 
 set includeexpr=LoadFile(v:fname)
+
+" please refer to https://jonasjacek.github.io/colors/
+hi tsxTagName ctermfg=75
+hi tsxCloseString ctermfg=74
+hi tsxCloseTag ctermfg=74
+hi tsxAttrib ctermfg=153 cterm=italic
+hi tsxTypes ctermfg=158
+hi ReactState ctermfg=142
+hi ReactProps ctermfg=169
+hi ApolloGraphQL ctermfg=170
+hi Events ctermfg=204
+hi ReduxKeywords ctermfg=204
+hi ReduxHooksKeywords ctermfg=204
+hi WebBrowser ctermfg=204
+hi ReactLifeCycleMethods ctermfg=204

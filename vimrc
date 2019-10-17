@@ -30,9 +30,6 @@ Plugin 'tpope/vim-endwise' " automatically add `end`
 " Plugin 'L9'
 " Plugin 'FuzzyFinder'
 " scripts not on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" Remember to compile command-t
-Plugin 'wincent/command-t'
 Plugin 'yonchu/accelerated-smooth-scroll'
 " auto
 Plugin 'Raimondi/delimitMate'
@@ -57,10 +54,10 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+" Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'maxmellon/vim-jsx-pretty'
+" Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
@@ -170,6 +167,12 @@ set smartcase
 set nrformats= "make all numbers in decimalism
 " for indentation of html
 let g:html_indent_inctags = "html,body,head,tbody"
+
+" disable typescript auto indention
+let g:typescript_indent_disable = 1
+
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 " keymap for close highlight search
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
