@@ -84,7 +84,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " git diff in gutter
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 
 " Snips
 " Track the engine.
@@ -115,6 +115,8 @@ Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+" disable python default styling with 4 spaces
+let g:python_recommended_style = 0
 filetype plugin indent on    " required
 
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -250,7 +252,7 @@ func! CompileCode()
   elseif &filetype == "cpp"
     exec "!g++ -std=c++11 % -o %<"
   elseif &filetype == "python"
-    exec "!python %"
+    exec "!python3 %"
   elseif &filetype == "java"
     exec "!javac %"
   elseif &filetype == "go"
@@ -264,7 +266,7 @@ func! RunCode()
   if &filetype == "c" || &filetype == "cpp"
     exec "!./%<"
   elseif &filetype == "python"
-    exec "!python %"
+    exec "!python3 %"
   elseif &filetype == "ruby"
     exec "!ruby %"
   elseif &filetype == "html"
@@ -300,7 +302,7 @@ endif
 " Use two-space indentation
 set autoindent " keep indentation when starting new lines
 set tabstop=2 " spaces per tab
-set softtabstop=1 " spaces per tab (when tabbing/backspacing)
+set softtabstop=2 " spaces per tab (when tabbing/backspacing)
 set shiftwidth=2 " spaces per tab (when shifting)
 set expandtab " always use spaces instead of tabs
 au BufWinEnter,BufNewFile * silent tab
