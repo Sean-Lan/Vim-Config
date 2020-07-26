@@ -1,0 +1,92 @@
+" Plugins will be downloaded under the specified directory.
+call plug#begin('~/.vim/plugged')
+
+" Declare the list of plugins.
+" Plug 'tpope/vim-sensible'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'inkarkat/vim-ShowTrailingWhitespace'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'tpope/vim-fugitive'
+" enable :Gbrowse for fugitive
+Plug 'tpope/vim-rhubarb'
+" auto put `end` for ruby
+Plug 'tpope/vim-endwise'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'mileszs/ack.vim'
+
+" * and # for search selected text in visual mode
+Plug 'nelstrom/vim-visual-star-search'
+
+" Filesystem explorer
+Plug 'scrooloose/nerdtree'
+" nerdtree git plug
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" git diff in gutter
+Plug 'airblade/vim-gitgutter'
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
+" =============== general settings ====================
+filetype plugin indent on
+set hls
+set nu
+set history=200
+set mouse=a " enable mouse
+set backspace=2
+set incsearch
+set encoding=utf-8
+set textwidth=100
+
+" Use two-space indentation
+set autoindent " keep indentation when starting new lines
+set tabstop=2 " spaces per tab
+set softtabstop=2 " spaces per tab (when tabbing/backspacing)
+set shiftwidth=2 " spaces per tab (when shifting)
+set expandtab " always use spaces instead of tabs
+au BufWinEnter,BufNewFile * silent tab
+
+" make command auto-completion like zsh
+set wildmenu
+set wildmode=full
+colorscheme elflord
+" When the following two options are set, search will be case-insensitive iff
+" you input is all lowercase. *NOTE*: the two options will also affect the
+" :substitute cmd, so a flag I may be needed to be case-sensitive.
+set ignorecase
+set smartcase
+
+" vertical line at textwidth characters
+if exists('+colorcolumn')
+  set colorcolumn=+1
+endif
+
+" put backup, swap and undo file into a centralized place
+" remember to create those directories!
+set undofile
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+" =============== end general settings ====================
+
+" =============== key bindings ============================
+let mapleader = ' '
+
+" fzf
+nnoremap <C-p> :<C-u>FZF<CR>
+
+" keymap for close highlight search
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" map to clear the space in the line tail
+nnoremap <leader>c :%s/ *$//<CR>:normal! ``<CR>:nohl<CR>
+
+" ================ end key bindings =========================
+
+" disable python default styling with 4 spaces
+let g:python_recommended_style = 0
