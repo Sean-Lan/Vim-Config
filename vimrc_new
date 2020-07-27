@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 " Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'inkarkat/vim-ShowTrailingWhitespace'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
@@ -16,7 +17,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
-Plug 'mileszs/ack.vim'
 
 " * and # for search selected text in visual mode
 Plug 'nelstrom/vim-visual-star-search'
@@ -24,10 +24,13 @@ Plug 'nelstrom/vim-visual-star-search'
 " Filesystem explorer
 Plug 'scrooloose/nerdtree'
 " nerdtree git plug
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " git diff in gutter
 Plug 'airblade/vim-gitgutter'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -72,6 +75,9 @@ set undofile
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 set undodir=~/.vim/.undo//
+
+" enable % for jump between begin and end of blocks
+runtime macros/matchit.vim
 " =============== end general settings ====================
 
 " =============== key bindings ============================
@@ -88,5 +94,13 @@ nnoremap <leader>c :%s/ *$//<CR>:normal! ``<CR>:nohl<CR>
 
 " ================ end key bindings =========================
 
+" ================ extra configs ============================
+let g:airline_powerline_fonts = 1 " show arrows
+let g:airline#extensions#tabline#enabled = 1
+
 " disable python default styling with 4 spaces
 let g:python_recommended_style = 0
+
+" make :Gbrowse to open the GitHub page for mus
+let g:fugitive_github_domains = ['github.com', 'git.musta.ch']
+" ================ end extra configs ========================
